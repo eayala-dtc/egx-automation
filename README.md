@@ -1,1 +1,1 @@
-# egx-reloaded-playwright
+# egx-automation
