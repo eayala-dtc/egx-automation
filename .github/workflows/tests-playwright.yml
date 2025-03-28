@@ -1,0 +1,32 @@
+# This is a basic workflow that is manually triggered
+
+name: Automation Tests with Playwright
+
+on:
+  push:
+    branches: [ develop ]
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "tests"
+  tests:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+      - name: Install dependencies
+        run: npm ci
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+      - name: Run Playwright tests
+        run: npx playwright test
+      #- uses: actions/upload-artifact@v4
+      #  if: ${{ !cancelled() }}
+      #  with:
+      #    name: test-results
+      #    path: test-results/
+      #    retention-days: 30
