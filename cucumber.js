@@ -7,7 +7,7 @@ module.exports = {
         paths: [
             "src/test/features/*.feature"
         ],
-        dryRun: false,   //Se cambia a true para obtener los steps de la consola
+        dryRun: true,   //Se cambia a true para obtener los steps de la consola
         require: [
             "src/test/steps/*.ts",
             "src/hooks/hooks.ts"
